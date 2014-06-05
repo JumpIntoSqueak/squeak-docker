@@ -5,6 +5,7 @@ RUN apt install -y git unzip curl
 RUN apt install -y libc6:i386
 RUN apt install -y x11vnc xvfb
 RUN apt install -y inotify-tools git
+RUN apt install -y websockify python-setuptools
 
 # Squeak display driver
 RUN apt install -y libgl1-mesa-glx:i386 libxext6:i386 libsm6:i386 libice6:i386 libx11-6:i386
