@@ -22,7 +22,6 @@ RUN unzip Squeak.zip
 
 ADD install.st /
 RUN ./Squeak-$VERSION-All-in-One.app/Contents/Linux-i686/bin/squeak -vm-sound-null -vm-display-null -headless ./Squeak-$VERSION-All-in-One.app/Contents/Resources/Squeak*.image /install.st
-ADD run.st /
 
 ADD wait_monticello_commit.sh /
 ADD run.sh /
