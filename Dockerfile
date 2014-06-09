@@ -21,6 +21,8 @@ ENV VERSION 4.5
 ADD http://ftp.squeak.org/$VERSION/Squeak-$VERSION-All-in-One.zip Squeak.zip
 RUN unzip Squeak.zip
 
+RUN git clone https://github.com/lehmannro/metacello-git.git /metacello-git
+
 ADD install.st /
 RUN ./Squeak-$VERSION-All-in-One.app/Contents/Linux-i686/bin/squeak -vm-sound-null -vm-display-null -headless ./Squeak-$VERSION-All-in-One.app/Contents/Resources/Squeak*.image /install.st
 

@@ -60,6 +60,12 @@ log value: 'Installing Metacello-work'.
                 version: #'stable';
                         repository: 'github://dalehenrich/metacello-work:configuration';
                                 load.
+
+Gofer new
+    repository: (MCFileTreeRepository path: '/metacello-git/repository/');
+    package: 'Metacello-Git';
+    load.
+
 log value: 'Done'.
 (GHPushButton new initializeWithLabel: 'Publish on Github.') openInWorld.!
 !MCVersionInfo methodsFor: 'accessing'!
