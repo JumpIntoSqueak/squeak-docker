@@ -4,7 +4,6 @@ RUN apt update
 RUN apt install -y git unzip curl
 RUN apt install -y libc6:i386
 RUN apt install -y x11vnc xvfb
-RUN apt install -y inotify-tools
 RUN apt install -y websockify python-setuptools
 
 # Squeak display driver
