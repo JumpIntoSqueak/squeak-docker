@@ -1,10 +1,11 @@
-| packages checkout metadata spec |
+| packages checkout metadata spec repo |
 
 ScreenController new fullScreenOn.
 
 checkout := '/checkout'.
 metadata := '.packages'.
 spec := checkout , FileDirectory slash, metadata.
+repo := MCGithubRepository path: checkout.
 
 [
     packages := (FileStream readOnlyFileNamed: spec) contents lines.
@@ -33,7 +34,7 @@ packages ifEmpty: [
 packages do: [ :pkg |
     "XXX catch errors"
     Gofer new
-        repository: (MCGithubRepository path: checkout);
+        repository: repo;
         package: pkg;
         load.
     ] displayingProgress: [ :pkg | 'Installing ' , pkg ].
