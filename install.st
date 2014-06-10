@@ -1,27 +1,3 @@
-SimpleButtonMorph subclass: #GHPushButton
-                     instanceVariableNames: 'hasRequested'
-                     classVariableNames: ''
-                     poolDictionaries: ''
-                     category: 'Github'!
-!GHPushButton methodsFor: 'button'!
-doButtonAction
-    hasRequested ifFalse: [
-        | user pass store |
-        OSProcess waitForCommand: 'git config credential.helper "store --file=/tmp/credentials"'.
-        user := FillInTheBlank request: 'Github username?'.
-        pass := FillInTheBlank requestPassword: 'Github password?'.
-        store := FileStream fileNamed: '/tmp/credentials'.
-        store nextPutAll: 'https://' , user , ':' , pass , '@github.com'; lf.
-        hasRequested := true.
-        OSProcess waitForCommand: 'git config --global user.name ', user
-    ].
-    OSProcess waitForCommand: 'git push'.
-! !
-!GHPushButton methodsFor: 'initialization'!
-initialize 
-    hasRequested := false.
-    super initialize.
-! !
 | log |
 
 log := [:msg | | str |
@@ -66,8 +42,7 @@ Gofer new
     package: 'Metacello-Git';
     load.
 
-log value: 'Done'.
-(GHPushButton new initializeWithLabel: 'Publish on Github.') openInWorld.!
+log value: 'Done'.!
 !MCVersionInfo methodsFor: 'accessing'!
 date
     ^ date.! !
