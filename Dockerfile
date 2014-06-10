@@ -25,6 +25,6 @@ RUN git clone https://github.com/lehmannro/metacello-git.git /metacello-git
 ADD install.st /
 RUN ./Squeak-$VERSION-All-in-One.app/Contents/Linux-i686/bin/squeak -vm-sound-null -vm-display-null -headless ./Squeak-$VERSION-All-in-One.app/Contents/Resources/Squeak*.image /install.st
 
-ADD wait_monticello_commit.sh /
 ADD run.sh /
+ADD run.st /
 EXPOSE 5900
