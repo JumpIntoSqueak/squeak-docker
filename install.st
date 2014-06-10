@@ -18,24 +18,24 @@ Installer ss
 
 log value: 'Installing Metacello'.
 (Smalltalk at: #Gofer) new
-              url: 'http://seaside.gemtalksystems.com/ss/metacello';
-                            package: 'ConfigurationOfMetacello';
-                                          load.
+    url: 'http://seaside.gemtalksystems.com/ss/metacello';
+    package: 'ConfigurationOfMetacello';
+    load.
 ((Smalltalk at: #ConfigurationOfMetacello) project
             version: #'previewBootstrap') load.
 
 log value: 'Installing Metacello-work'.
 (Smalltalk at: #Metacello) new
-        configuration: 'MetacelloPreview';
-                version: #'stable';
-                        repository: 'github://dalehenrich/metacello-work:configuration';
-                                get.
+    configuration: 'MetacelloPreview';
+    version: #'stable';
+    repository: 'github://dalehenrich/metacello-work:configuration';
+    get.
 
 (Smalltalk at: #Metacello) new
-        configuration: 'MetacelloPreview';
-                version: #'stable';
-                        repository: 'github://dalehenrich/metacello-work:configuration';
-                                load.
+    configuration: 'MetacelloPreview';
+    version: #'stable';
+    repository: 'github://dalehenrich/metacello-work:configuration';
+    load.
 
 Gofer new
     repository: (MCFileTreeRepository path: '/metacello-git/repository/');
