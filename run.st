@@ -1,5 +1,7 @@
 | packages checkout metadata spec |
 
+ScreenController new fullScreenOn.
+
 checkout := '/checkout'.
 metadata := '.packages'.
 spec := checkout , FileDirectory slash, metadata.
