@@ -1,7 +1,7 @@
 FROM ubuntu:14.04 
 RUN dpkg --add-architecture i386
 RUN apt update
-RUN apt install -y git unzip curl
+RUN apt install -y git unzip curl ruby1.9.1
 RUN apt install -y libc6:i386
 RUN apt install -y x11vnc xvfb
 RUN apt install -y websockify python-setuptools
@@ -21,6 +21,7 @@ ADD http://ftp.squeak.org/$VERSION/Squeak-$VERSION-All-in-One.zip Squeak.zip
 RUN unzip Squeak.zip
 
 RUN git clone https://github.com/lehmannro/metacello-git.git /metacello-git
+RUN sudo gem install hub
 
 ADD install.st /
 RUN ./Squeak-$VERSION-All-in-One.app/Contents/Linux-i686/bin/squeak -vm-sound-null -vm-display-null -headless ./Squeak-$VERSION-All-in-One.app/Contents/Resources/Squeak*.image /install.st
