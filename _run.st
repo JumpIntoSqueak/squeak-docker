@@ -7,6 +7,13 @@ metadata := '.packages'.
 spec := checkout , FileDirectory slash, metadata.
 repo := MCGithubRepository path: checkout.
 
+Smalltalk globals at: #repo put: repo.
+[
+    (FileStream readOnlyFileNamed: checkout , '/run.st') fileIn.
+] on: FileDoesNotExistException do: [].
+  on: Exception do: [ "XXX" ].
+Smalltalk globals removeKey: #repo.
+
 [
     packages := (FileStream readOnlyFileNamed: spec) contents lines.
 ] on: FileDoesNotExistException

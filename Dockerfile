@@ -29,5 +29,5 @@ ADD install.st /
 RUN $IMAGEROOT/Contents/Linux-i686/bin/squeak -vm-sound-null -vm-display-null -headless $RESOURCES/Squeak*.image /install.st
 
 ADD run.sh /
-ADD run.st /
+ADD _run.st /
 EXPOSE 5900
