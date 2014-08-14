@@ -5,7 +5,7 @@ ScreenController new fullScreenOn.
 checkout := '/checkout'.
 metadata := '.packages'.
 spec := checkout , FileDirectory slash, metadata.
-repo := MCGithubRepository path: checkout.
+repo := MCGitHubRepository2 path: checkout.
 
 [
     packages := (FileStream readOnlyFileNamed: spec) contents lines.
