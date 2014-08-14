@@ -30,4 +30,3 @@ RUN $IMAGEROOT/Contents/Linux-i686/bin/squeak -vm-sound-null -vm-display-null -h
 
 ADD run.sh /
 ADD run.st /
-EXPOSE 5900
