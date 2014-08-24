@@ -26,7 +26,7 @@ RUN unzip Squeak.zip
 RUN ln -s $RESOURCES/Squeak4.5-13680.changes /usr/share/nginx/html
 RUN ln -s $RESOURCES/Squeak4.5-13680.image /usr/share/nginx/html
 
-RUN git clone https://github.com/lehmannro/metacello-git.git /metacello-git
+RUN git clone https://github.com/JumpIntoSqueak/metacello-git.git /metacello-git
 RUN sudo gem install hub
 
 ADD install.st /
