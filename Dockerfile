@@ -25,6 +25,8 @@ ADD http://ftp.squeak.org/$VERSION/Squeak-$VERSION-All-in-One.zip Squeak.zip
 RUN unzip Squeak.zip
 RUN ln -s $RESOURCES/Squeak4.5-13680.changes /usr/share/nginx/html
 RUN ln -s $RESOURCES/Squeak4.5-13680.image /usr/share/nginx/html
+RUN chmod a+r $RESOURCES/Squeak4.5-13680.changes
+RUN chmod a+r $RESOURCES/Squeak4.5-13680.image
 
 RUN git clone https://github.com/JumpIntoSqueak/metacello-git.git /metacello-git
 RUN sudo gem install hub
