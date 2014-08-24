@@ -18,7 +18,7 @@ Installer ss
 
 log value: 'Installing Metacello'.
 (Smalltalk at: #Gofer) new
-    url: 'http://seaside.gemtalksystems.com/ss/metacello';
+    url: 'http://seaside.gemtalksystems.com/ss/metacello/';
     package: 'ConfigurationOfMetacello';
     load.
 ((Smalltalk at: #ConfigurationOfMetacello) project
@@ -37,16 +37,47 @@ log value: 'Installing Metacello-work'.
     repository: 'github://dalehenrich/metacello-work:configuration';
     load.
 
+log value: 'Installing Metacello-Git'.
 Gofer new
     repository: (MCFileTreeRepository path: '/metacello-git/repository/');
     package: 'Metacello-Git';
-    load.
+    load.!
 
-log value: 'Done'.!
 !MCVersionInfo methodsFor: 'accessing'!
 date
     ^ date.! !
 !MCVersionInfo methodsFor: 'accessing'!
 time
     ^ time.! !
+
+| log |
+
+log := [:msg | | str |
+    str := ' ---> ', msg.
+    FileStream stdout nextPutAll: str; nextPut: Character lf; flush.
+    Transcript cr; show: str].
+
+log value: 'Installing SWA Utilities'.
+(Installer monticello http: 'http://www.hpi.uni-potsdam.de/hirschfeld/squeaksource/SwaUtilities')
+    addPackage: 'Icons';
+    install.
+
+log value: 'Installing SqueakSSL'.
+(Installer monticello http: 'http://www.squeaksource.com/SqueakSSL')
+    addPackage: 'SqueakSSL-Core';
+    install.
+
+log value: 'Installing Webclient'.
+(Installer monticello http: 'http://www.squeaksource.com/MetacelloRepository')
+    addPackage: 'ConfigurationOfWebClient';
+    install.
+
+log value: 'Done'.!
+
+
+
+
+
+
+
 Smalltalk snapshot: true andQuit: true.
