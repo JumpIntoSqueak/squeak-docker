@@ -9,7 +9,7 @@ repo := MCGitHubRepository2 path: checkout.
 
 Smalltalk globals at: #repo put: repo.
 [
-    (FileStream readOnlyFileNamed: checkout , '/run.st') fileIn.
+    (FileStream readOnlyFileNamed: checkout , '/jumpinto.st') fileIn.
 ] on: FileDoesNotExistException do: []
   on: Exception do: [ "XXX" ].
 Smalltalk globals removeKey: #repo.
