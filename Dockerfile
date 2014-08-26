@@ -28,7 +28,7 @@ RUN ln -s $RESOURCES/Squeak4.5-13680.image /usr/share/nginx/html
 RUN chmod a+r $RESOURCES/Squeak4.5-13680.changes
 RUN chmod a+r $RESOURCES/Squeak4.5-13680.image
 
-RUN git clone --depth 0 https://github.com/JumpIntoSqueak/metacello-git.git /metacello-git
+RUN git clone --depth 1 https://github.com/JumpIntoSqueak/metacello-git.git /metacello-git
 RUN sudo gem install hub
 
 ADD install.st /
