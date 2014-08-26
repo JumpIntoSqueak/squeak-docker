@@ -22,7 +22,7 @@ ENV RESOURCES $IMAGEROOT/Contents/Resources/
 ADD http://ftp.squeak.org/$VERSION/Squeak-$VERSION-All-in-One.zip Squeak.zip
 RUN unzip Squeak.zip
 
-RUN git clone https://github.com/lehmannro/metacello-git.git /metacello-git
+RUN git clone --depth 0 https://github.com/lehmannro/metacello-git.git /metacello-git
 RUN sudo gem install hub
 
 ADD install.st /
