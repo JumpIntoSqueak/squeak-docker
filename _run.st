@@ -22,7 +22,7 @@ Smalltalk globals removeKey: #repo.
     message := String streamContents: [ :s | s
         nextPutAll: '"Could not find package spec `' , spec , $', '"'; cr;
         nextPutAll: 'Gofer new'; crtab;
-        nextPutAll: 'repository: (MCGithubRepository path:' , $' , '/checkout' , $' , ');'; crtab;
+        nextPutAll: 'repository: (MCGitHubRepository2 path:' , $' , '/checkout' , $' , ');'; crtab;
         nextPutAll: 'package: XXX;'; crtab;
         nextPutAll: 'load.'.
     ].
